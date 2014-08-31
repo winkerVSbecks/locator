@@ -1,0 +1,11 @@
+<h1 class="text-center padding" ng-if="!options">
+  <i class="icon ion-ios7-reloading"></i>
+</h1>
+
+<!-- Reverse Geocode Results -->
+<ion-list ng-if="options.length > 0">
+  <ion-item 
+    ng-repeat="option in options" 
+    ng-click="pickLocation(option); locationPicker.hide()"
+    item="option">{{option.formatted_address}}</ion-item>
+</ion-list>

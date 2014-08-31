@@ -1,0 +1,15 @@
+{
+  "name": "locator",
+  "version": "0.1.0",
+  "description": "a set of google location services for angularJS",
+  "main": [
+    "dist/locator.min.js"
+  ],
+  "license": "MIT",
+   "ignore": [
+    "example"
+  ],
+  "dependencies": {
+    "angular": "1.2.14"
+  }
+}
