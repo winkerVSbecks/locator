@@ -1,4 +1,4 @@
-Locator
+Locator (work in progress...)
 ==============
 
 A set of google location services for AngularJS.
