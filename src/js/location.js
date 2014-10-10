@@ -2,8 +2,6 @@ angular.module('locator', [])
   .factory('location', ['$log', '$q',
     function($log, $q) {
 
-      'use strict';
-
       var service = {
         isReady: false,
         gpsAvailable: true,

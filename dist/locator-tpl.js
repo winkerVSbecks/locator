@@ -4,22 +4,12 @@ catch(err) { app = angular.module("locator", []); }
 app.run(["$templateCache", function($templateCache) {
   "use strict";
   $templateCache.put("location-lookup.html",
-    "<div\n" +
-    "  class=\"search-box\">\n" +
-    "  <form>\n" +
-    "    <label>search by city (usa &amp; canada)</label>\n" +
-    "    <input\n" +
-    "      location-predictions\n" +
-    "      type=\"search\"\n" +
-    "      ng-model=\"query\"\n" +
-    "      results=\"results\">\n" +
-    "  </form>\n" +
+    "<div class=\"search-box\">\n" +
+    "  <location-predictions results=\"results\"></location-predictions>\n" +
     "</div>\n" +
     "\n" +
-    "<!-- Search Results -->\n" +
     "<ul>\n" +
-    "  <li\n" +
-    "    ng-repeat=\"option in results | limitTo:limitTo\"\n" +
+    "  <li ng-repeat=\"option in results | limitTo:limitTo\"\n" +
     "    ng-click=\"pickLocation(option);\"\n" +
     "    item=\"option\">{{option.description}}</li>\n" +
     "</ul>");
@@ -37,11 +27,11 @@ app.run(["$templateCache", function($templateCache) {
     "</h1>\n" +
     "\n" +
     "<!-- Reverse Geocode Results -->\n" +
-    "<ion-list ng-if=\"options.length > 0\">\n" +
-    "  <ion-item \n" +
-    "    ng-repeat=\"option in options\" \n" +
+    "<ul ng-if=\"options.length > 0\">\n" +
+    "  <li\n" +
+    "    ng-repeat=\"option in options | limitTo:limitTo\"\n" +
     "    ng-click=\"pickLocation(option); locationPicker.hide()\"\n" +
-    "    item=\"option\">{{option.formatted_address}}</ion-item>\n" +
-    "</ion-list>");
+    "    item=\"option\">{{option.formatted_address}}</li>\n" +
+    "</ul>");
 }]);
 })();

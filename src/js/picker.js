@@ -1,23 +1,20 @@
 angular.module('locator')
   .directive('locationPicker', ['$log', 'location', 'reverseGeocoder',
     function($log, location, reverseGeocoder) {
-
-      'use strict';
-
       return {
         restrict: 'E',
         require: '?ngModel',
+        scope: true,
         templateUrl: 'location-picker.html',
         link: function(scope, iElement, iAttrs, model) {
+          scope.limitTo = scope.$eval(iAttrs.limitTo) || 15;
           // Get options
           location.ready(function() {
             reverseGeocoder.geocode(location.current).then(
               function(results) {
                 scope.options = results;
-                console.log('####', results)
               }, $log.error);
           });
-
           // Pick A Option
           scope.pickLocation = function(locData) {
             var locData = {

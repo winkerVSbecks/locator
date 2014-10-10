@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('locator')
   .directive('locationLookup', ['$log',
     function($log) {
@@ -7,9 +5,11 @@ angular.module('locator')
         restrict: 'E',
         require: '?ngModel',
         templateUrl: 'location-lookup.html',
+        scope: true,
         link: function(scope, iElement, iAttrs, model) {
           scope.limitTo = scope.$eval(iAttrs.limitTo) || 15;
           scope.callback = scope.$eval(iAttrs.callback);
+          scope.results = [];
           // Generate a DOM elment for Google Places Service
           var elem = document.createElement('div');
           elem.setAttribute('id', scope.ID);
@@ -17,7 +17,7 @@ angular.module('locator')
           var googlePlacesService = new google.maps.places.PlacesService(iElement[0].appendChild(elem));
           // Clear query and results
           scope.clear = function() {
-            scope.query = scope.results = null;
+            scope.results = [];
           };
           // Pick A Location
           scope.pickLocation = function(location) {

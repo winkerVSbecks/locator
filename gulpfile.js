@@ -6,15 +6,13 @@ var watch = require('gulp-watch');
 var colors = require('colors');
 var html2js = require('gulp-html2js');
 
-var sourceFiles = ['./src/location.js', './src/location-lookup.js', './src/location-picker.js', './src/location-predictions.js', './src/reverse-geocoder.js'];
-
 gulp.task('css', function() {
   return gulp.src('./src/*.css')
     .pipe(gulp.dest('./dist/'));
 });
 
 gulp.task('js', function() {
-  return gulp.src(sourceFiles)
+  return gulp.src('./src/js/*.js')
     .pipe(concat('locator.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./dist/'));
@@ -42,7 +40,7 @@ gulp.task('build', ['js', 'html2js', 'css', 'example']);
 gulp.task('dev', function() {
   // Start a server
   connect.server({
-    root: 'example',
+    root: '',
     port: 3000,
     livereload: true
   });
@@ -56,5 +54,5 @@ gulp.task('dev', function() {
     .pipe(connect.reload());
 
 	// Watch src files to rebuild
-  gulp.watch('./src/*.*', ['build']);
+  gulp.watch('./src/**/*.*', ['build']);
 });

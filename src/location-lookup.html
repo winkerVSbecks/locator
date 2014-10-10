@@ -1,19 +1,9 @@
-<div
-  class="search-box">
-  <form>
-    <label>search by city (usa &amp; canada)</label>
-    <input
-      location-predictions
-      type="search"
-      ng-model="query"
-      results="results">
-  </form>
+<div class="search-box">
+  <location-predictions results="results"></location-predictions>
 </div>
 
-<!-- Search Results -->
 <ul>
-  <li
-    ng-repeat="option in results | limitTo:limitTo"
+  <li ng-repeat="option in results | limitTo:limitTo"
     ng-click="pickLocation(option);"
     item="option">{{option.description}}</li>
 </ul>
