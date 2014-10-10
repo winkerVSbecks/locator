@@ -10,34 +10,21 @@
     <!-- endstyles -->
   </head>
 
-  <body ng-app="locatorDemo">
+  <body ng-app="locatorDemo" ng-controller="MainCtrl">
 
-    <div class="container" ng-controller="MainCtrl">
-
-      <h1>
+    <h1>
+      <a href="https://github.com/winkerVSbecks/locator">github</a>
       Locator <small>a set of google location services for angularJS</small>
-        <a href="https://github.com/winkerVSbecks/locator">github</a>
-      </h1>
+    </h1>
 
-      <ul>
-        <li>
-          Location Lookup
-          <ul>
-            <li>Location Predictions</li>
-          </ul>
-        </li>
-        <li>
-          Location Picker
-          <ul>
-            <li>Reverse Geocoder</li>
-          </ul>
-        </li>
-      </ul>
+    <div class="column black">
+      <h2>Location Lookup</h2>
+      <location-lookup ng-model="location.one" limit-to="4"></location-lookup>
+    </div>
 
-      <location-lookup limit-to="25"></location-lookup>
-
-      <location-picker ng-if="location.gpsAvailable" ng-model="location.detail"></location-picker>
-
+    <div class="column blue">
+      <h2>Location Picker</h2>
+      <location-picker ng-model="location.two" limit-to="5"></location-picker>
     </div>
 
     <!-- Dependencies -->
@@ -48,9 +35,13 @@
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDk_iQ6QWOTHW-TWoXSFLwbcnhaxlcnXXk&libraries=places&sensor=true"></script>
 
     <!-- Scripts -->
-    <script src="locator/locator.min.js"></script>
-    <script src="locator/locator-tpl.js"></script>
-    <script src="js/app.js"></script>
-    <!-- endscripts -->
+    <script src="/example/locator/locator-tpl.js"></script>
+    <script src="/src/js/location.js"></script>
+    <script src="/src/js/lookup.js"></script>
+    <script src="/src/js/picker.js"></script>
+    <script src="/src/js/predictions.js"></script>
+    <script src="/src/js/reverse-geocoder.js"></script>
+    <script src="/example/locator/locator-tpl.js"></script>
+    <script src="/example/js/app.js"></script>
 </body>
 </html>
