@@ -40,7 +40,7 @@ gulp.task('build', ['js', 'html2js', 'css', 'example']);
 gulp.task('dev', function() {
   // Start a server
   connect.server({
-    root: '',
+    root: 'example',
     port: 3000,
     livereload: true
   });
