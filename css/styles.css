@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Lato);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900);
 
 * {
   -webkit-box-sizing: border-box;
@@ -15,29 +15,31 @@ html, body {
   font-family: 'Lato', sans-serif;
 }
 
+a:hover,
+a:active { color: #000; text-decoration: none; }
+
 nav { padding: 0 24px; }
-h1 {
+nav h1 {
   line-height: 120px;
   display: inline-block;
-  width: 90%;
+  width: 80%;
   margin: 0;
   float: left;
 }
-h1 small { color: #bdc3c7; font-size: 16px; }
+nav small,
+.tag-line { color: #bdc3c7; font-size: 16px; }
+.tag-line { display: none; padding: 24px; }
 nav a {
   display: inline-block;
   font-weight: bold;
   line-height: 120px;
   text-align: right;
-  width: 10%;
+  width: 20%;
   color: #95A5A6;
   float: left;
   font-size: 16px;
   text-decoration: none;
   vertical-align: bottom;
-}
-nav a:hover {
-  border-bottom: 1px solid;
 }
 
 h2 {
@@ -92,6 +94,24 @@ input {
   width: 100%;
   background-color: #444;
 }
+h3 { font-weight: bolder; font-weight: 900; }
+.muted { color: #BDC3C7; }
+
+@media (max-width : 48rem) {
+  nav small { display: none; }
+  nav h1, nav a { line-height: 80px; }
+  .tag-line { display: block; }
+
+  .column {
+    position: relative;
+    display: block;
+    float: left;
+    width: 100%;
+    top: auto;
+  }
+  .black,
+  .blue { left: auto; }
+}
 
 
 /************************************************
@@ -100,7 +120,7 @@ input {
 /*************************************************/
 .overlay {
   background: rgba(0,0,0,.5);
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -114,7 +134,7 @@ input {
 .modal__contents {
   background: white;
   width: 32rem;
-  position: absolute;
+  position: fixed;
   left: 50%;
   margin-left: -16rem;
   top: 6rem;
@@ -122,16 +142,13 @@ input {
   padding: 48px;
 }
 
-.modal__contents p {
-  /*white-space: normal;*/
-}
-
 .modal__close {
-  position: absolute;
+  position: fixed;
   right: 2rem;
   top: 2rem;
+  padding: 10px;
   text-decoration: none;
-  display: none;
+  font-weight: bolder;
 }
 
 .modal--show {
@@ -165,10 +182,6 @@ input {
     bottom: 0;
     width: 100%;
     margin: 0;
-  }
-
-  .modal__close {
-    display: block;
   }
 
   .modal--transition {
