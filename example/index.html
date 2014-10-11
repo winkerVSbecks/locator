@@ -14,10 +14,12 @@
 
     <nav>
       <h1>
-        Locator <small>a set of google location services for angularJS</small>
+        Locator <small>a set of google location services for AngularJS</small>
       </h1><!--
        --><a href="https://github.com/winkerVSbecks/locator">github</a>
     </nav>
+
+    <small class="tag-line">A set of google location services for AngularJS</small>
 
     <div class="column black flex-item">
       <h2>Location Lookup</h2>
@@ -32,13 +34,13 @@
     <div ng-class="{ false: 'modal', true: 'modal--show' }[isModalVisible]">
       <div class="overlay" ng-click="toggleModal()"></div>
       <div class="modal__contents modal--transition">
-        <a class="modal__close" href="" ng-click="toggleModal()">X</a>
-        <h3>Picked Location</h3>
-        <p>{{pickedLocation | json}}</p>
+        <a class="modal__close" href="" ng-click="toggleModal()">&times;</a>
+        <h3 ng-if="pickedLocation">Picked Location</h3>
+        <p ng-if="pickedLocation">Name: <span class="muted">{{pickedLocation.name}}</span><br/>Description: <span class="muted">{{pickedLocation.description}}</span><br/>Latitude: <span class="muted">{{pickedLocation.latitude}}</span><br/>Longitude: <span class="muted">{{pickedLocation.longitude}}</span></p>
         <br/>
         <br/>
-        <h3>Looked Up Location</h3>
-        <p>{{lookedUpLocation | json}}</p>
+        <h3 ng-if="lookedUpLocation">Looked Up Location</h3>
+        <p ng-if="lookedUpLocation">Name: <span class="muted">{{lookedUpLocation.name}}</span><br/>Description: <span class="muted">{{lookedUpLocation.description}}</span><br/>Latitude: <span class="muted">{{lookedUpLocation.latitude}}</span><br/>Longitude: <span class="muted">{{lookedUpLocation.longitude}}</span></p>
       </div>
     </div>
 
