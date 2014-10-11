@@ -12,19 +12,34 @@
 
   <body ng-app="locatorDemo" ng-controller="MainCtrl">
 
-    <h1>
-      <a href="https://github.com/winkerVSbecks/locator">github</a>
-      Locator <small>a set of google location services for angularJS</small>
-    </h1>
+    <nav>
+      <h1>
+        Locator <small>a set of google location services for angularJS</small>
+      </h1><!--
+       --><a href="https://github.com/winkerVSbecks/locator">github</a>
+    </nav>
 
-    <div class="column black">
+    <div class="column black flex-item">
       <h2>Location Lookup</h2>
-      <location-lookup ng-model="location.one" limit-to="4"></location-lookup>
+      <location-lookup ng-model="lookedUpLocation" limit-to="4"></location-lookup>
     </div>
 
-    <div class="column blue">
+    <div class="column blue flex-item">
       <h2>Location Picker</h2>
-      <location-picker ng-model="location.two" limit-to="5"></location-picker>
+      <location-picker ng-model="pickedLocation" limit-to="5"></location-picker>
+    </div>
+
+    <div ng-class="{ false: 'modal', true: 'modal--show' }[isModalVisible]">
+      <div class="overlay" ng-click="toggleModal()"></div>
+      <div class="modal__contents modal--transition">
+        <a class="modal__close" href="" ng-click="toggleModal()">X</a>
+        <h3>Picked Location</h3>
+        <p>{{pickedLocation | json}}</p>
+        <br/>
+        <br/>
+        <h3>Looked Up Location</h3>
+        <p>{{lookedUpLocation | json}}</p>
+      </div>
     </div>
 
     <!-- Dependencies -->
@@ -35,7 +50,7 @@
     <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDk_iQ6QWOTHW-TWoXSFLwbcnhaxlcnXXk&libraries=places&sensor=true"></script>
 
     <!-- Scripts -->
-    <script src="/example/locator/locator-tpl.js"></script>
+    <script src="/dist/locator-tpl.js"></script>
     <script src="/src/js/location.js"></script>
     <script src="/src/js/lookup.js"></script>
     <script src="/src/js/picker.js"></script>
