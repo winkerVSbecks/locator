@@ -5,7 +5,7 @@ angular.module('locator')
         restrict: 'E',
         require: '?ngModel',
         templateUrl: 'location-lookup.html',
-        scope: true,
+        scope: {},
         link: function(scope, iElement, iAttrs, model) {
           scope.limitTo = scope.$eval(iAttrs.limitTo) || 15;
           scope.callback = scope.$eval(iAttrs.callback);
@@ -34,8 +34,6 @@ angular.module('locator')
                 };
                 // Update model
                 model.$setViewValue(locData);
-                // Clean up
-                scope.clear();
                 // Callback
                 scope.callback && scope.callback(locData);
               });

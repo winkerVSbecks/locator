@@ -32,7 +32,7 @@ angular.module('locator')
           // Refresh on every edit
           el.on('input', function() {
             var query = el.val();
-            if (query && query.length > 3)
+            if (query && query.length >= 3)
               fetch(query);
             else
               scope.$apply(function() {

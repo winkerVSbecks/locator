@@ -28,9 +28,8 @@ app.run(["$templateCache", function($templateCache) {
     "\n" +
     "<!-- Reverse Geocode Results -->\n" +
     "<ul ng-if=\"options.length > 0\">\n" +
-    "  <li\n" +
-    "    ng-repeat=\"option in options | limitTo:limitTo\"\n" +
-    "    ng-click=\"pickLocation(option); locationPicker.hide()\"\n" +
+    "  <li ng-repeat=\"option in options | limitTo:limitTo\"\n" +
+    "    ng-click=\"pickLocation(option)\"\n" +
     "    item=\"option\">{{option.formatted_address}}</li>\n" +
     "</ul>");
 }]);

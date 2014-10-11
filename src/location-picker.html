@@ -4,8 +4,7 @@
 
 <!-- Reverse Geocode Results -->
 <ul ng-if="options.length > 0">
-  <li
-    ng-repeat="option in options | limitTo:limitTo"
-    ng-click="pickLocation(option); locationPicker.hide()"
+  <li ng-repeat="option in options | limitTo:limitTo"
+    ng-click="pickLocation(option)"
     item="option">{{option.formatted_address}}</li>
 </ul>
