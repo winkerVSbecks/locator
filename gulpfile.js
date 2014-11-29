@@ -6,36 +6,33 @@ var watch = require('gulp-watch');
 var colors = require('colors');
 var html2js = require('gulp-html2js');
 
-gulp.task('css', function() {
-  return gulp.src('./src/*.css')
-    .pipe(gulp.dest('./dist/'));
-});
-
+// Combine and minify JS
 gulp.task('js', function() {
-  return gulp.src('./src/js/*.js')
-    .pipe(concat('locator.min.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest('./dist/'));
+  return gulp.src('./src/**/*.js')
+          .pipe(concat('locator.min.js'))
+          .pipe(uglify())
+          .pipe(gulp.dest('./dist/'))
+          .pipe(gulp.dest('./example/locator'));
 });
 
+
+// Convert partials to templateCache
 gulp.task('html2js', function() {
-  return gulp.src('./src/*.html')
-    .pipe(html2js({
-      outputModuleName: 'locator',
-      useStrict: true,
-      base: 'src'
-    }))
-    .pipe(concat('locator-tpl.js'))
-    .pipe(gulp.dest('./dist/'));
+  return gulp.src(['./src/location-lookup/location-lookup.html', './src/location-picker/location-picker.html'])
+          .pipe(html2js({
+            outputModuleName: 'locator',
+            useStrict: true,
+            base: 'src'
+          }))
+          .pipe(concat('locator-tpl.js'))
+          .pipe(gulp.dest('./dist/'))
+          .pipe(gulp.dest('./example/locator'))
+          .pipe(connect.reload());
 });
 
-gulp.task('example', function() {
-  return gulp.src('./dist/*.*')
-    .pipe(gulp.dest('./example/locator'))
-    .pipe(connect.reload());
-});
 
-gulp.task('build', ['js', 'html2js', 'css', 'example']);
+gulp.task('build', ['js', 'html2js']);
+
 
 gulp.task('dev', function() {
   // Start a server
@@ -48,9 +45,7 @@ gulp.task('dev', function() {
 
   // Watch HTML files for changes
   console.log('[CONNECT] Watching HTML, JS and CSS files for live-reload'.blue);
-  watch({
-    glob: ['./example/**/*.*', './example/*.*']
-  })
+  watch({ glob: './example/**/*.*'})
     .pipe(connect.reload());
 
 	// Watch src files to rebuild
