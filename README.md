@@ -1,4 +1,4 @@
-Locator (work in progress...)
+Locator
 ==============
 
 A set of google location services for AngularJS.
@@ -17,7 +17,8 @@ Include the following files in your app:
 
 ```
 bower_components/angular/angular.js
-bower_components/dist/locator.min.js
+bower_components/locator/dist/locator.min.js
+bower_components/locator/dist/locator-tpl.min.js
 ```
 
 You then need to declare a dependency on the `locator` module:
@@ -29,4 +30,4 @@ You then need to declare a dependency on the `locator` module:
 
 2. `$ gulp dev` starts a simple node server and watches for changes
 
-3. Go to [http://localhost:3000](http://localhost:3000/) to see the example app
+3. Go to [http://localhost:3000](http://localhost:3000) to see the example app
