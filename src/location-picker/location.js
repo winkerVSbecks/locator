@@ -1,8 +1,6 @@
 angular.module('locator')
   .factory('location', [
-    '$log',
-    '$q',
-  function($log, $q) {
+  function() {
 
     var service = {
       isReady: false,
@@ -34,7 +32,7 @@ angular.module('locator')
 
       }, function(error) {
         service.gpsAvailable = false;
-        console.log('code: ' + error.code + 'message: ' + error.message);
+        console.log('code: ' + error.code + ' message: ' + error.message);
         // error callback
         e_cb();
       });

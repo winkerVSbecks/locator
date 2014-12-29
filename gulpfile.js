@@ -5,10 +5,48 @@ var connect = require('gulp-connect');
 var watch = require('gulp-watch');
 var colors = require('colors');
 var html2js = require('gulp-html2js');
+var karma = require('gulp-karma');
+var mocha = require('gulp-mocha');
+
+
+var testFiles = [
+  // Vendor
+  'bower_components/angular/angular.js',
+  'bower_components/angular-mocks/angular-mocks.js',
+  // App
+  'src/locator-module.js',
+  'src/**/*.js'
+];
+
+gulp.task('karma-run', function () {
+  return gulp.src(testFiles)
+          .pipe(karma({
+            configFile: './testing/karma.conf.js',
+            action: 'run'
+          }))
+          .on('error', function(err) {
+            // Make sure failed tests cause gulp to exit non-zero
+            throw err;
+          });
+});
+
+
+gulp.task('karma-watch', function () {
+  return gulp.src(testFiles)
+          .pipe(karma({
+            configFile: './testing/karma.conf.js',
+            action: 'watch'
+          }))
+          .on('error', function(err) {
+            // Make sure failed tests cause gulp to exit non-zero
+            throw err;
+          });
+});
+
 
 // Combine and minify JS
 gulp.task('js', function() {
-  return gulp.src('./src/**/*.js')
+  return gulp.src(['./src/**/*.js', '!./src/**/*.test.js'])
           .pipe(concat('locator.min.js'))
           .pipe(uglify())
           .pipe(gulp.dest('./dist/'))
@@ -18,7 +56,8 @@ gulp.task('js', function() {
 
 // Convert partials to templateCache
 gulp.task('html2js', function() {
-  return gulp.src(['./src/location-lookup/location-lookup.html', './src/location-picker/location-picker.html'])
+  return gulp.src(['./src/location-lookup/location-lookup.html',
+            './src/location-picker/location-picker.html'])
           .pipe(html2js({
             outputModuleName: 'locator',
             useStrict: true,
@@ -31,10 +70,7 @@ gulp.task('html2js', function() {
 });
 
 
-gulp.task('build', ['js', 'html2js']);
-
-
-gulp.task('dev', function() {
+gulp.task('server', function() {
   // Start a server
   connect.server({
     root: 'example',
@@ -51,3 +87,8 @@ gulp.task('dev', function() {
 	// Watch src files to rebuild
   gulp.watch('./src/**/*.*', ['build']);
 });
+
+
+gulp.task('build', ['karma-run', 'js', 'html2js']);
+
+gulp.task('dev', ['server', 'karma-watch']);
