@@ -11,23 +11,10 @@ Developed at [rangle.io](http://rangle.io)
 - AngularJS
 - Google Maps API
 
-## Usage
+## Example App
 
-Include the following files in your app:
+1. Install dependencies `$ npm install && bower install`
 
-```
-bower_components/angular/angular.js
-bower_components/locator/dist/locator.min.js
-bower_components/locator/dist/locator-tpl.min.js
-```
-
-You then need to declare a dependency on the `locator` module:
-`angular.module('myApp', ['locator']);`
-
-## Development
-
-1. Install dependencies `$ npm install`
-
-2. `$ gulp dev` starts a simple node server and watches for changes
+2. `$ gulp dev` starts a simple node server and runs tests
 
 3. Go to [http://localhost:3000](http://localhost:3000) to see the example app
