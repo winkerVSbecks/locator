@@ -1,7 +1,7 @@
 Locator
 ==============
 
-A set of google location services for AngularJS.
+A set of google location services for AngularJS. [Demo](http://winkervsbecks.github.io/locator)
 
 Developed at [rangle.io](http://rangle.io)
 
@@ -11,7 +11,7 @@ Developed at [rangle.io](http://rangle.io)
 - AngularJS
 - Google Maps API
 
-## Example App
+## Running locally
 
 1. Install dependencies `$ npm install && bower install`
 
