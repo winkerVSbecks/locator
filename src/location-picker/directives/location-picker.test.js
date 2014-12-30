@@ -2,7 +2,7 @@
 
 describe('Location Picker Directive', function() {
 
-  var $compile, scope, $log, location, reverseGeocoder, $templateCache;
+  var $compile, scope, $log, location, reverseGeocoder;
 
   beforeEach(module('locator'));
 
@@ -13,12 +13,6 @@ describe('Location Picker Directive', function() {
     location = getService('location');
     reverseGeocoder = getService('reverseGeocoder');
   });
-
-  beforeEach(inject(function( $templateCache) {
-    var template = $templateCache.get('src/location-picker/directives/location-picker.html');
-    $templateCache.put('location-picker/location-picker.html', template);
-  }));
-
 
   it('should display loading message', function() {
     var element = $compile('<location-picker ng-model="pickedLocation" limit-to="5"></location-picker>')(scope);

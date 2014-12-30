@@ -116,3 +116,57 @@ var geocodeResults = [{
     "political"
   ]
 }];
+
+var predictionsResults = [{
+  "description": "Delhi Street, Guelph, ON, Canada",
+  "id": "2daf57a4a2c708b0286ba4144fc1b458b9e2c79e",
+  "matched_substrings": [{
+    "length": 5,
+    "offset": 0
+  }],
+  "place_id": "EiBEZWxoaSBTdHJlZXQsIEd1ZWxwaCwgT04sIENhbmFkYQ",
+  "reference": "CjQkAAAAId2u1LytVDu4KHdnrBcfP8C0jgYjm2B7NcArmDCCJkj5pvsxUmuip6aoDKiDpE-OEhCs1ElG0C0Y3oHXQ1v8me-QGhRdkKA8HSEhv2677G8KkNl8qbUgkg",
+  "terms": [{
+    "offset": 0,
+    "value": "Delhi Street"
+  }, {
+    "offset": 14,
+    "value": "Guelph"
+  }, {
+    "offset": 22,
+    "value": "ON"
+  }, {
+    "offset": 26,
+    "value": "Canada"
+  }],
+  "types": [
+    "route",
+    "geocode"
+  ]
+}, {
+  "description": "Delhi Crescent, Unionville, ON, Canada",
+  "id": "b34c7acd5d1cdf31186743ef96fbdfdef967f7d9",
+  "matched_substrings": [{
+    "length": 5,
+    "offset": 0
+  }],
+  "place_id": "EiZEZWxoaSBDcmVzY2VudCwgVW5pb252aWxsZSwgT04sIENhbmFkYQ",
+  "reference": "CjQqAAAAhNuuML92kjXZKJzp0pytLm4C5n-gQSzZmiyGPTbJh1ID4tWMcI0kPWj3J0HXtwO9EhD35HAvOwtCSMsTjGfD9BdHGhTeL4eSjeZKG5AxTPJoR_1XQP_egw",
+  "terms": [{
+    "offset": 0,
+    "value": "Delhi Crescent"
+  }, {
+    "offset": 16,
+    "value": "Unionville"
+  }, {
+    "offset": 28,
+    "value": "ON"
+  }, {
+    "offset": 32,
+    "value": "Canada"
+  }],
+  "types": [
+    "route",
+    "geocode"
+  ]
+}];

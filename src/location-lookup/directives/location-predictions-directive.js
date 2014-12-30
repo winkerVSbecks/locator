@@ -1,6 +1,5 @@
 angular.module('locator')
   .directive('locationPredictions', [
-
   function() {
     return {
       restrict: 'E',
