@@ -1,22 +1,13 @@
 'use strict';
 
-var navigator = {
-  geolocation: {
-    getCurrentPosition: function() {}
-  }
-};
-
 describe('Location service:', function () {
   var location;
-
   var navStub = sinon.stub(navigator.geolocation, 'getCurrentPosition');
 
   beforeEach(module('locator'));
 
   beforeEach(function () {
-    inject(function ($injector) {
-      location = $injector.get('location');
-    });
+    location = getService('location');
   });
 
   it('should exist', function () {

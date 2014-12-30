@@ -16,10 +16,9 @@ angular.module('locator')
         // Get options
         location.ready(function() {
           reverseGeocoder.geocode(location.current)
-            .then(
-              function(results) {
-                scope.options = results;
-              }, $log.error);
+            .then(function(results) {
+              scope.options = results;
+            }, $log.error);
         });
 
         // Pick A Option

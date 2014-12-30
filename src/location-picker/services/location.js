@@ -1,5 +1,5 @@
 angular.module('locator')
-  .factory('location', [
+.factory('location', [
   function() {
 
     var service = {

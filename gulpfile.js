@@ -13,7 +13,10 @@ var testFiles = [
   // Vendor
   'bower_components/angular/angular.js',
   'bower_components/angular-mocks/angular-mocks.js',
+  'testing/lib/google-maps-mocks.js',
+  'bower_components/q/q.js',
   // App
+  'testing/test-utils.js',
   'src/locator-module.js',
   'src/**/*.js'
 ];
@@ -46,7 +49,11 @@ gulp.task('karma-watch', function () {
 
 // Combine and minify JS
 gulp.task('js', function() {
-  return gulp.src(['./src/**/*.js', '!./src/**/*.test.js'])
+  return gulp.src([
+          'src/locator-module.js',
+          './src/**/*.js',
+          '!./src/**/*.test.js'
+         ])
           .pipe(concat('locator.min.js'))
           .pipe(uglify())
           .pipe(gulp.dest('./dist/'))
