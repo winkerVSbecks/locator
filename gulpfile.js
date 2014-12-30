@@ -18,7 +18,8 @@ var testFiles = [
   // App
   'testing/test-utils.js',
   'src/locator-module.js',
-  'src/**/*.js'
+  'src/**/*.js',
+  'dist/locator-tpl.js'
 ];
 
 gulp.task('karma-run', function () {

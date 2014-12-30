@@ -16,14 +16,20 @@ describe('Location service:', function () {
     $document = getService('$document');
   });
 
+
   it('should exist', function () {
     expect(reverseGeocoder).to.be.an('object');
     expect(reverseGeocoder.geocode).to.be.a('function');
   });
 
+
   it('should fetch location results for the provided LatLng value', function () {
 
-    var latlng = google.maps.LatLng(43.6533137, -79.3683951);
+    var testLoc = {
+      latitude: 43.6533137,
+      longitude: -79.3683951
+    };
+
     reverseGeocoder.geocoder = new google.maps.Geocoder();
 
     var results = [{
@@ -117,7 +123,7 @@ describe('Location service:', function () {
       ]
     }];
 
-    return reverseGeocoder.geocode(latlng)
+    return reverseGeocoder.geocode(testLoc)
             .then(function(results) {
               expect(results).to.be.instanceof(Array);
               expect(results).to.deep.equal(results);

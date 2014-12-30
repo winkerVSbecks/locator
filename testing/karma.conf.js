@@ -1,6 +1,6 @@
 module.exports = function (config) {
   config.set({
-    basePath: '/.',
+    basePath: '/',
     frameworks: ['mocha', 'chai', 'sinon'],
     exclude: ['bower_components/*', 'dist/**/*', 'example/**/*'],
     reporters: ['nyan'],

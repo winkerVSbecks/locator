@@ -10,6 +10,7 @@ describe('Location service:', function () {
     location = getService('location');
   });
 
+
   it('should exist', function () {
     expect(location).to.be.an('object');
     expect(location.get).to.be.a('function');
@@ -18,6 +19,7 @@ describe('Location service:', function () {
     expect(location.isReady).to.be.false
     expect(location.gpsAvailable).to.be.true
   });
+
 
   it('should get current location', function () {
     var testLoc = {
@@ -35,6 +37,7 @@ describe('Location service:', function () {
       expect(location.current).to.deep.equal(testLoc);
     });
   });
+
 
   it('should fail if GPS not available', function () {
     var testLoc = {
@@ -54,6 +57,7 @@ describe('Location service:', function () {
       expect(location.gpsAvailable).to.be.false;
     });
   });
+
 
   it('should execute registered tasks if ready', function () {
     var callback = sinon.spy();

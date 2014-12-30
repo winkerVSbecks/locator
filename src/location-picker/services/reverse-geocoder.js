@@ -27,7 +27,6 @@ angular.module('locator')
       service.geocoder.geocode({
         latLng: latlng
       }, function(results, status) {
-
         if (status !== google.maps.GeocoderStatus.OK) {
 
           deferred.reject('No locations found');

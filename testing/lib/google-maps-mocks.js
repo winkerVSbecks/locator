@@ -164,17 +164,9 @@ google.maps.InfoWindow = (function() {
   return InfoWindow;
 })();
 
-google.maps.GeocoderStatus = (function() {
-  __extends(GeocoderStatus, GoogleMapsMock);
-
-  function GeocoderStatus() {
-    GeocoderStatus.__super__.constructor.apply(this, arguments);
-  }
-
-  GeocoderStatus.prototype.OK = 'OK';
-
-  return GeocoderStatus;
-})();
+google.maps.GeocoderStatus = {
+  OK: 'OK'
+};
 
 google.maps.Geocoder = (function() {
   __extends(Geocoder, GoogleMapsMock);
