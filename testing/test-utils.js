@@ -17,3 +17,11 @@ var getService = function(serviceName) {
 
   return injectedService;
 };
+
+var testLoc = {
+  latitude: 43.6533137,
+  longitude: -79.3683951
+};
+var loc = {
+  coords: testLoc
+};

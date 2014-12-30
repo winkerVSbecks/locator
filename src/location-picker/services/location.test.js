@@ -22,14 +22,6 @@ describe('Location service:', function () {
 
 
   it('should get current location', function () {
-    var testLoc = {
-      latitude: 43.6533137,
-      longitude: -79.3683951
-    };
-    var loc = {
-      coords: testLoc
-    };
-
     navStub.callsArgWith(0, loc);
 
     location.get(function() {
@@ -40,14 +32,6 @@ describe('Location service:', function () {
 
 
   it('should fail if GPS not available', function () {
-    var testLoc = {
-      latitude: 43.6533137,
-      longitude: -79.3683951
-    };
-    var loc = {
-      coords: testLoc
-    };
-
     navStub.callsArgWith(1, {
       code: 2,
       message: 'Location information is unavailable.'

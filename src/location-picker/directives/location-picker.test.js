@@ -94,10 +94,7 @@ describe('Location Picker Directive', function() {
 
   it('should update the model if an option is selected', function() {
 
-    location.current = {
-      latitude: 43.6533137,
-      longitude: -79.3683951
-    };
+    location.current = testLoc;
 
     var element = $compile('<location-picker ng-model="pickedLocation" limit-to="5"></location-picker>')(scope);
     scope.$digest();

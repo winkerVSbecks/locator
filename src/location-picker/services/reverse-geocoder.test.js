@@ -25,11 +25,6 @@ describe('Location service:', function () {
 
   it('should fetch location results for the provided LatLng value', function () {
 
-    var testLoc = {
-      latitude: 43.6533137,
-      longitude: -79.3683951
-    };
-
     reverseGeocoder.geocoder = new google.maps.Geocoder();
 
     var results = [{
