@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Location Predictions Directive', function() {
+describe('Location Predictions directive', function() {
 
   var $compile, scope;
 

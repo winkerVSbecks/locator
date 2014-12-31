@@ -187,15 +187,29 @@ google.maps.Geocoder = (function() {
 })();
 
 google.maps.places.AutocompleteService = (function() {
-  __extends(places, GoogleMapsMock);
+  __extends(AutocompleteService, GoogleMapsMock);
 
-  function places() {
-    places.__super__.constructor.apply(this, arguments);
+  function AutocompleteService() {
+    AutocompleteService.__super__.constructor.apply(this, arguments);
   }
 
-  places.prototype.getPlacePredictions = function(input, success) {
+  AutocompleteService.prototype.getPlacePredictions = function(input, success) {
     success(predictionsResults, 'OK');
   };
 
-  return places;
+  return AutocompleteService;
+})();
+
+google.maps.places.PlacesService = (function() {
+  __extends(PlacesService, GoogleMapsMock);
+
+  function PlacesService() {
+    PlacesService.__super__.constructor.apply(this, arguments);
+  }
+
+  PlacesService.prototype.getDetails = function(input, success) {
+    success(locationDetail, 'OK');
+  };
+
+  return PlacesService;
 })();

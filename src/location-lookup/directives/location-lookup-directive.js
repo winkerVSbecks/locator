@@ -1,7 +1,6 @@
 angular.module('locator')
   .directive('locationLookup', [
-    '$log',
-  function($log) {
+  function() {
     return {
       restrict: 'E',
       require: '?ngModel',

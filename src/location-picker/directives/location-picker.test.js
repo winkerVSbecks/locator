@@ -2,7 +2,7 @@
 
 describe('Location Picker Directive', function() {
 
-  var $compile, scope, $log, location, reverseGeocoder;
+  var $compile, scope, $log, location, reverseGeocoder, element;
 
   beforeEach(module('locator'));
 
@@ -12,22 +12,19 @@ describe('Location Picker Directive', function() {
     $log = getService('$log');
     location = getService('location');
     reverseGeocoder = getService('reverseGeocoder');
+
+    element = $compile('<location-picker ng-model="pickedLocation" limit-to="5"></location-picker>')(scope);
+    scope.$digest();
   });
 
   it('should display loading message', function() {
-    var element = $compile('<location-picker ng-model="pickedLocation" limit-to="5"></location-picker>')(scope);
-    scope.$digest();
 
-    var liElement = element.find('li');
+    expect(element.find('li').html()).to.match(/Loading …/i);
 
-    expect(liElement.html()).to.match(/Loading …/i);
   });
 
 
   it('should display options', function() {
-    var element = $compile('<location-picker ng-model="pickedLocation" limit-to="5"></location-picker>')(scope);
-    scope.$digest();
-
     element.isolateScope().options = geocodeResults;
     element.isolateScope().$digest();
 
@@ -42,11 +39,10 @@ describe('Location Picker Directive', function() {
 
     location.current = testLoc;
 
-    var element = $compile('<location-picker ng-model="pickedLocation" limit-to="5"></location-picker>')(scope);
-    scope.$digest();
-
     element.isolateScope().options = geocodeResults;
     element.isolateScope().$digest();
+
+    var liElement = element.find('li');
 
     element.isolateScope().pickLocation(element.isolateScope().options[0]);
 
