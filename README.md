@@ -2,6 +2,7 @@ Locator
 ==============
 
 A set of google location services for AngularJS. [Demo](http://winkervsbecks.github.io/locator)
+For more details see my [blog post](http://varun.ca/locator)
 
 Developed at [rangle.io](http://rangle.io)
 
